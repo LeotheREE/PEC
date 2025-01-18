@@ -252,13 +252,21 @@ const questions = [
     // Add more questions as needed
 ];
 
-let questionPool = [...questions];
+let questionPool = shuffleArray([...questions]);
 let currentQuestionIndex = 0;
 
 const questionElement = document.getElementById("question");
 const choicesContainer = document.getElementById("choices-container");
 const nextButton = document.getElementById("next-button");
 const restartButton = document.getElementById("restart-button");
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+    return array;
+}
 
 function loadQuestion() {
     if (questionPool.length === 0) {
@@ -305,7 +313,7 @@ nextButton.addEventListener("click", () => {
 });
 
 restartButton.addEventListener("click", () => {
-    questionPool = [...questions];
+    questionPool = shuffleArray([...questions]); // Shuffle the questions again
     currentQuestionIndex = 0;
     nextButton.style.display = "inline-block";
     restartButton.style.display = "none";
