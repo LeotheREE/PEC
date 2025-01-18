@@ -14,15 +14,16 @@ body {
     background: white;
     border-radius: 12px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    width: 500px;
-    padding: 30px;
+    width: 90%; /* Adjusted for smaller screens */
+    max-width: 500px; /* Maintain the original width on larger screens */
+    padding: 20px; /* Reduced padding for smaller screens */
     text-align: center;
 }
 
 h1 {
     color: #555;
     margin-bottom: 20px;
-    font-size: 1.8rem;
+    font-size: 1.5rem; /* Adjusted for smaller screens */
 }
 
 #question-container {
@@ -30,7 +31,7 @@ h1 {
 }
 
 #question {
-    font-size: 1.2rem;
+    font-size: 1.1rem; /* Slightly reduced for smaller screens */
     font-weight: 500;
     color: #444;
 }
@@ -44,9 +45,10 @@ h1 {
 }
 
 .choice {
-    width: 80%;
+    width: 100%; /* Full width on smaller screens */
+    max-width: 400px; /* Maintain max width for larger screens */
     padding: 12px;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Adjusted for smaller screens */
     border: 2px solid #ccc;
     border-radius: 8px;
     background-color: #f9f9f9;
@@ -75,7 +77,7 @@ h1 {
 
 button {
     padding: 10px 20px;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Slightly reduced font size */
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -104,4 +106,22 @@ button:disabled {
 
 #restart-button:hover {
     background-color: #1e7e34;
+}
+
+/* Add responsive design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.3rem; /* Further reduced for very small screens */
+    }
+    #question {
+        font-size: 1rem;
+    }
+    .choice {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+    button {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+    }
 }
