@@ -262,7 +262,7 @@ const restartButton = document.getElementById("restart-button");
 
 function loadQuestion() {
     if (questionPool.length === 0) {
-        questionElement.textContent = "Pota REE ka na boy!";
+        questionElement.textContent = "You've completed the quiz!";
         choicesContainer.innerHTML = "";
         nextButton.style.display = "none";
         restartButton.style.display = "inline-block";
@@ -285,19 +285,19 @@ function loadQuestion() {
 function handleChoice(selected, correct) {
     const buttons = document.querySelectorAll(".choice");
     buttons.forEach(button => {
-        button.disabled = true;
+        button.disabled = true; // Disable all buttons after selection
         if (button.textContent === correct) {
-            button.classList.add("correct");
+            button.classList.add("correct"); // Correct answer turns green
         } else if (button.textContent === selected) {
-            button.classList.add("incorrect");
+            button.classList.add("incorrect"); // Wrong answer turns red
         }
     });
     nextButton.disabled = false;
 
     if (selected !== correct) {
-        questionPool.push(questionPool[currentQuestionIndex]);
+        questionPool.push(questionPool[currentQuestionIndex]); // Push back for retry
     }
-    questionPool.splice(currentQuestionIndex, 1);
+    questionPool.splice(currentQuestionIndex, 1); // Remove question from pool
 }
 
 nextButton.addEventListener("click", () => {
