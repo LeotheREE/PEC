@@ -270,7 +270,7 @@ function shuffleArray(array) {
 
 function loadQuestion() {
     if (questionPool.length === 0) {
-        questionElement.textContent = "You've completed the quiz!";
+        questionElement.textContent = "REE KA NA IDOLOOO!";
         choicesContainer.innerHTML = "";
         nextButton.style.display = "none";
         restartButton.style.display = "inline-block";
